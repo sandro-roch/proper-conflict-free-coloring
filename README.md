@@ -1,13 +1,15 @@
 # Computing Proper Conflict-Free Colorings #
 
-Given a simple undirected graph $G=(V, E)$, a _proper conflict-free $k$-coloring_ is a coloring, i.e. an assignement $\varphi: V\to\{1, \cdots, k\}$ which is ...
+Sandro M. Roch, Technische Universität Berlin
 
-* _proper_, i.e. $\varphi(v)\neq\varphi(w)$ for every pair of adjacent vertices $\{v, w\}\in E$, and ...
+Given a simple undirected graph $G=(V, E)$, a _proper conflict-free k-coloring_ is a coloring, i.e. an assignement $\varphi: V\to\{1, \cdots, k\}$ which is...
+
+* _proper_, i.e. $\varphi(v)\neq\varphi(w)$ for every pair of adjacent vertices $\{v, w\}\in E$, and...
 * _conflict-free_, i.e. for every non-isolated vertex $v\in V$, there is a color c that is used exactly once among its open neighborhood, $\lvert\{ w\in V: \{v, w\}\in E, \varphi(w)=c \}\rvert = 1$.
 
-This variant of the coloring problem has been investigated, for instance, in (Fabrici, Lužar, Rindošová & Soták, 2023), (Caro, Petruševski, Škrekovski, 2023) and (Cheilaris, 2009). Confligt-free colorings are motivated by the frequency assignment problem: Colors represent different radio frequencies that are assigned to base stations, and the uniqueness property guarantees a frequency that a mobile agent can tune without hearing interference of different base stations; see (Guy et al., 2003). 
+This variant of the coloring problem has been investigated, for instance, in (Fabrici, Lužar, Rindošová & Soták, 2023), (Caro, Petruševski, Škrekovski, 2023) and (Cheilaris, 2009). Conflict-free colorings are motivated by the frequency assignment problem: Colors represent different radio frequencies that are assigned to base stations, and the uniqueness property guarantees a frequency that a mobile agent can tune without hearing interference of different base stations; see (Even et al., 2003) for more information on this application. 
 
-This repository provides a simple SAT-implementation that I created while working on specific coloring problems during my PhD. At that time, I was not aware of any other ready-to-use implementation. I hope it may be of use for other researches. I tried to keep the functionality general and extensible; however, I never intended to write a general purpose coloring library and do not claim that my implementation is as efficient as it could be.
+This repository provides a simple solver based on a SAT-model that I created while working on specific coloring problems during my PhD. At that time, I was not aware of any other ready-to-use implementation. I hope it may be of use for other researches. I tried to keep the functionality general and extensible; however, I never intended to write a general purpose coloring library and do not claim that my implementation is as efficient as it could be.
 
 ## Requirements
 
@@ -16,7 +18,7 @@ All scripts can be executed using Python 3. It requires the package `python-sat`
 
 ## Usage
 
-The main file `proper_conflict_free_coloring.py` contains a class ProperConflictFreeColoringSolver` which implements the following methods:
+The main file `proper_conflict_free_coloring.py` contains a class `ProperConflictFreeColoringSolver` which implements the following methods:
 
 * `__init__(self, G)`
 * `find_coloring(number_colors)`
